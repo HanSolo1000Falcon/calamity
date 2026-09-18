@@ -3,7 +3,7 @@ using calamity.Core.Buttons;
 
 namespace calamity.Modules.Backend.Settings;
 
-public interface IModSetting
+public interface IModuleSetting
 {
     public Type ButtonType { get; }
 
