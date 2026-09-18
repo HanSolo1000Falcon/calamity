@@ -16,6 +16,5 @@ public class Plugin : BaseUnityPlugin
 
     private void OnPlayerAwake()
     {
-        CompatHelper.SetupCompatLayer();
     }
 }
