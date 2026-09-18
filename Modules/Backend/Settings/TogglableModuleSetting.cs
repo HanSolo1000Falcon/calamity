@@ -10,7 +10,7 @@ public class TogglableModuleSetting : IModuleSetting
 
     public event Action<bool> OnToggleEvent; 
 
-    private string _settingName;
+    private readonly string _settingName;
     private bool _toggled;
 
     public void SetupAssociations(IButton button)
@@ -24,6 +24,11 @@ public class TogglableModuleSetting : IModuleSetting
         var togglableButton = (TogglableButton)button;
         togglableButton.Toggled = _toggled;
         togglableButton.ButtonText = _settingName;
+        togglableButton.OnToggleEvent += toggled =>
+        {
+            _toggled = toggled;
+            OnToggleEvent?.Invoke(_toggled);
+        };
     }
 
     public TogglableModuleSetting(string settingName, bool toggledState = false)

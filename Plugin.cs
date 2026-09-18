@@ -1,6 +1,5 @@
 ﻿using BepInEx;
 using calamity.Compat;
-using UnityEngine;
 
 namespace calamity;
 

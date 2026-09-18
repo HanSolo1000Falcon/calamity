@@ -7,34 +7,32 @@ public class TogglableButton : MonoBehaviour, IButton
 {
     public event Action<bool> OnToggleEvent;
 
-    private bool _toggled;
     public bool Toggled
     {
-        get => _toggled;
+        get;
         set
         {
-            if (value == _toggled)
+            if (value == field)
             {
                 return;
             }
 
-            _toggled = value;
-            OnToggleEvent?.Invoke(_toggled);
+            field = value;
+            OnToggleEvent?.Invoke(field);
         }
     }
 
-    private string _buttonText;
     public string ButtonText
     {
-        get => _buttonText;
+        get;
         set
         {
-            if (value != _buttonText)
+            if (value != field)
             {
                 return;
             }
 
-            _buttonText = value;
+            field = value;
             // TODO: Add actual text changing
         }
     }
